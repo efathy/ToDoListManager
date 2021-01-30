@@ -20,6 +20,9 @@
         <jetty.version>9.4.36.v20210114</jetty.version>
         <wicket-version>8.11.0</wicket-version>
         <slf4j-version>1.7.30</slf4j-version>
+        <hibernate-version>5.4.27.Final</hibernate-version>
+        <postgres-connector-version>42.2.18</postgres-connector-version>
+        <wicket-bootstrap-version>3.0.0-M17</wicket-bootstrap-version>
     </properties>
 
     <dependencies>
@@ -27,6 +30,21 @@
             <groupId>org.apache.wicket</groupId>
             <artifactId>wicket-core</artifactId>
             <version>${wicket-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.agilecoders.wicket</groupId>
+            <artifactId>wicket-bootstrap-core</artifactId>
+            <version>${wicket-bootstrap-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.agilecoders.wicket</groupId>
+            <artifactId>wicket-bootstrap-extensions</artifactId>
+            <version>${wicket-bootstrap-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>de.agilecoders.wicket</groupId>
+            <artifactId>wicket-bootstrap-themes</artifactId>
+            <version>${wicket-bootstrap-version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -45,7 +63,21 @@
             <version>${jetty.version}</version>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgres-connector-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
     </dependencies>
 
     <build>
