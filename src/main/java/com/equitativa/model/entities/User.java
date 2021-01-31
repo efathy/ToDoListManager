@@ -13,7 +13,6 @@ public class User extends BaseEntity {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "is_admin")
     private boolean admin;
-
-//    private
 }
