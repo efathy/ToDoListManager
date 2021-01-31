@@ -1,6 +1,7 @@
 package com.equitativa.model.entities;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Entity(name = "project")
+@EqualsAndHashCode(callSuper = false)
 public class Project extends BaseEntity {
     @NotBlank
     @Column(name = "name")

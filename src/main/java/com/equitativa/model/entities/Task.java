@@ -1,6 +1,7 @@
 package com.equitativa.model.entities;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -9,6 +10,7 @@ import javax.validation.constraints.Size;
 
 @Data
 @Entity(name = "task")
+@EqualsAndHashCode(callSuper = false)
 public class Task extends BaseEntity {
     @NotBlank
     @Size(max = 255)
