@@ -23,6 +23,7 @@
         <hibernate-version>5.4.27.Final</hibernate-version>
         <postgres-connector-version>42.2.18</postgres-connector-version>
         <wicket-bootstrap-version>3.0.0-M17</wicket-bootstrap-version>
+        <lombok-version>1.18.10</lombok-version>
     </properties>
 
     <dependencies>
@@ -77,6 +78,11 @@
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok-version}</version>
         </dependency>
     </dependencies>
 
