@@ -1,5 +1,6 @@
 package com.equitativa.model.entities;
 
+import com.equitativa.model.listener.EntityModificationListener;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import java.time.LocalDateTime;
 
 @Data
 @MappedSuperclass
+@EntityListeners(EntityModificationListener.class)
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,5 +1,6 @@
 package com.equitativa;
 
+import com.equitativa.dataaccess.utils.ConnectionHandler;
 import com.equitativa.pages.Home;
 import de.agilecoders.wicket.core.Bootstrap;
 import org.apache.wicket.Page;
@@ -10,6 +11,7 @@ public class ToDoListManagerApplication extends WebApplication {
     @Override
     protected void init() {
         super.init();
+        ConnectionHandler.initialize();
         Bootstrap.install(this);
     }
 
