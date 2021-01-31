@@ -14,7 +14,6 @@
             <property name="javax.persistence.jdbc.driver"
                       value="org.postgresql.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect"/>
-            <property name="org.hibernate.event.internal.DefaultPersistEventListener" value="trace"/>
             <property name="javax.persistence.jdbc.url"
                       value="jdbc:postgresql://localhost:5432/tests"/>
             <property name="javax.persistence.jdbc.user" value="sylvain"/>

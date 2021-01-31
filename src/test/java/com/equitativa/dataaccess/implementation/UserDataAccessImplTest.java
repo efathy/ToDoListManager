@@ -59,7 +59,7 @@ class UserDataAccessImplTest {
         user.setAdmin(true);
         Integer userId = userDataAccess.createUser(user);
         List<User> users = userDataAccess.getUsers(null);
-        assertTrue( users != null && users.size() > 0);
+        assertTrue(users != null && users.size() > 0);
         userDataAccess.deleteUser(userId);
     }
 }
