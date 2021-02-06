@@ -17,7 +17,7 @@
             <property name="javax.persistence.jdbc.url"
                       value="jdbc:postgresql://localhost:5432/tests"/>
             <property name="javax.persistence.jdbc.user" value="sylvain"/>
-<!--            <property name="hibernate.show_sql" value="true"/>-->
+            <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
         </properties>
     </persistence-unit>
