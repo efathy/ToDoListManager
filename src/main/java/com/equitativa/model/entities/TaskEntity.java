@@ -15,8 +15,20 @@ import javax.validation.constraints.Size;
 @Entity(name = "task")
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-// TODO: 1/31/21 Entity listener
+@NamedQuery(name = TaskEntity.FIND_ALL, query = "SELECT t FROM task t")
+@NamedQuery(name = TaskEntity.FIND_BY_PROJECT, query = "SELECT t FROM task t WHERE t.project.id = :projectId")
+@NamedQuery(name = TaskEntity.FIND_BY_ASSIGNED_TO, query = "SELECT t FROM task t WHERE t.assignedTo.id = :assignedToId")
+@NamedQuery(name = TaskEntity.FIND_BY_PROJECT_AND_ASSIGNED_TO, query = "SELECT t FROM task t WHERE t.assignedTo.id = :assignedToId and t.project.id = :projectId")
 public class TaskEntity extends BaseEntity {
+    @Transient
+    public static final String FIND_ALL = "TaskEntity.findAll";
+    @Transient
+    public static final String FIND_BY_PROJECT = "TaskEntity.findByProject";
+    @Transient
+    public static final String FIND_BY_ASSIGNED_TO = "TaskEntity.findByAssignedTo";
+    @Transient
+    public static final String FIND_BY_PROJECT_AND_ASSIGNED_TO = "TaskEntity.findByProjectAndAssignedTo";
+
     @NotBlank
     @Size(max = 255)
     @Column(name = "name", nullable = false)
@@ -31,14 +43,14 @@ public class TaskEntity extends BaseEntity {
     @JoinColumn(name = "project_id", nullable = false)
     private ProjectEntity project;
 
-    @ManyToOne(targetEntity = UsersEntity.class)
+    @ManyToOne(targetEntity = UserEntity.class)
     @JoinColumn(name = "assigned_to", nullable = false)
-    private UsersEntity assignedTo;
+    private UserEntity assignedTo;
 
     @NotNull
-    @ManyToOne(targetEntity = UsersEntity.class)
+    @ManyToOne(targetEntity = UserEntity.class)
     @JoinColumn(name = "reporter", nullable = false)
-    private UsersEntity reporter;
+    private UserEntity reporter;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -51,8 +63,8 @@ public class TaskEntity extends BaseEntity {
             this.setName(task.getName());
             this.setDescription(task.getDescription());
             this.setStatus(task.getStatus());
-            this.setAssignedTo(new UsersEntity(task.getAssignedTo()));
-            this.setReporter(new UsersEntity(task.getReporter()));
+            this.setAssignedTo(new UserEntity(task.getAssignedTo()));
+            this.setReporter(new UserEntity(task.getReporter()));
             this.setProject(new ProjectEntity(task.getProject()));
         }
     }

@@ -6,6 +6,7 @@ import com.equitativa.service.domain.User;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserDataAccessImplTest {
 
-    private UserDataAccess userDataAccess = new UserDataAccessImpl();
+    private final UserDataAccess userDataAccess = new UserDataAccessImpl();
 
     @BeforeAll
     static void beforeAll() {
@@ -54,12 +55,15 @@ class UserDataAccessImplTest {
 
     @Test
     void getUsers() {
+        List<User> users = userDataAccess.getUsers();
+        System.out.println(Arrays.toString(users.toArray()));
+        assertEquals(0, users.size());
         User user = new User();
         user.setName("Eslam");
         user.setAdmin(true);
         Integer userId = userDataAccess.createUser(user);
-        List<User> users = userDataAccess.getUsers(null);
-        assertTrue(users != null && users.size() > 0);
+        users = userDataAccess.getUsers();
+        assertNotEquals(0, users.size());
         userDataAccess.deleteUser(userId);
     }
 }

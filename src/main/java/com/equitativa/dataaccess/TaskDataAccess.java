@@ -12,5 +12,7 @@ public interface TaskDataAccess {
 
     void deleteTask(Integer taskId);
 
+    Task findTask(Integer taskId);
+
     List<Task> getTasks(Integer projectId, Integer assignedTo);
 }

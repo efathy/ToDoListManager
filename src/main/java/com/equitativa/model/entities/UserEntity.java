@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
@@ -15,7 +13,12 @@ import java.util.List;
 @Entity(name = "users")
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-public class UsersEntity extends BaseEntity {
+@NamedQuery(name = UserEntity.FIND_ALL, query = "SELECT u FROM users u")
+public class UserEntity extends BaseEntity {
+
+    @Transient
+    public static final String FIND_ALL = "UserEntity.findAll";
+
     @NotBlank
     @Column(name = "name", nullable = false)
     private String name;
@@ -26,8 +29,8 @@ public class UsersEntity extends BaseEntity {
     @OneToMany(mappedBy = "assignedTo", targetEntity = TaskEntity.class)
     private List<TaskEntity> assignedTasks;
 
-    public UsersEntity(User user) {
-        if(user != null) {
+    public UserEntity(User user) {
+        if (user != null) {
             this.setId(user.getId());
             this.setName(user.getName());
             this.setAdmin(user.isAdmin());
