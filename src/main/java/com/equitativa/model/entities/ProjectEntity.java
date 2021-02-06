@@ -14,7 +14,14 @@ import java.util.List;
 @Entity(name = "project")
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
+@NamedQuery(name = ProjectEntity.FIND_ALL, query = "SELECT p FROM project p")
+@NamedQuery(name = ProjectEntity.FIND_BY_MANAGER, query = "SELECT p FROM project p WHERE p.manager.id = :managerId")
 public class ProjectEntity extends BaseEntity {
+    @Transient
+    public static final String FIND_ALL = "ProjectEntity.findAll";
+    @Transient
+    public static final String FIND_BY_MANAGER = "ProjectEntity.findByManager";
+
     @NotBlank
     @Column(name = "name")
     private String name;
@@ -22,7 +29,7 @@ public class ProjectEntity extends BaseEntity {
     @NotNull
     @OneToOne
     @JoinColumn(name = "manager_id", nullable = false)
-    private UsersEntity manager;
+    private UserEntity manager;
 
     @OneToMany(mappedBy = "project")
     private List<TaskEntity> tasks;
@@ -31,7 +38,7 @@ public class ProjectEntity extends BaseEntity {
         if (project != null) {
             this.setId(project.getId());
             this.setName(project.getName());
-            this.setManager(new UsersEntity(project.getManager()));
+            this.setManager(new UserEntity(project.getManager()));
         }
     }
 

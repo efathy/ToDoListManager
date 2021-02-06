@@ -12,5 +12,5 @@ public interface UserDataAccess {
 
     User findUser(Integer userId);
 
-    List<User> getUsers(Integer projectId);
+    List<User> getUsers();
 }

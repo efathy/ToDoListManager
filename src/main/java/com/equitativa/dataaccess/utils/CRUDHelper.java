@@ -11,7 +11,7 @@ import java.util.List;
 public class CRUDHelper<T extends BaseEntity> {
 
     public static final String DATABASE_EXCEPTION = "Exception happen on dealing with database:";
-    private Class<T> persistentClassType;
+    private final Class<T> persistentClassType;
 
     public CRUDHelper(Class<T> type) {
         this.persistentClassType = type;
@@ -36,29 +36,11 @@ public class CRUDHelper<T extends BaseEntity> {
         return entity.getId();
     }
 
-    public List<T> getEntities() {
-        List<T> resultList = null;
-        EntityManager entityManager = getNewEntityManager();
-        try {
-            resultList = entityManager.createQuery("Select t from " + getEntityName() + " t").getResultList();
-        } catch (Exception e) {
-            log.error(DATABASE_EXCEPTION + e.getMessage(), e);
-        } finally {
-            entityManager.close();
-        }
-        return resultList;
-    }
-
-    private String getEntityName() {
-        return persistentClassType.getSimpleName().replace("Entity", "").toLowerCase();
-    }
-
     public void delete(Integer entityId) {
-        // TODO: 1/31/21 FIX ME
         EntityManager entityManager = getNewEntityManager();
         try {
             entityManager.getTransaction().begin();
-            entityManager.remove(find(entityId));
+            entityManager.remove(entityManager.find(persistentClassType, entityId));
             entityManager.getTransaction().commit();
         } catch (Exception e) {
             log.error(DATABASE_EXCEPTION + e.getMessage(), e);
