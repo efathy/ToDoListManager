@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<form wicket:id="form">
+    <wicket:extend>
+        <h3 class="text-center">New User</h3>
+        <form wicket:id="userForm">
+            <div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" wicket:id="name" placeholder="Enter Name" id="name">
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </wicket:extend>
+</form>
+</body>
+</html>

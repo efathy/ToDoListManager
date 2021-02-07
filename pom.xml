@@ -10,7 +10,6 @@
     <packaging>war</packaging>
 
     <name>ToDoListManager Maven Webapp</name>
-    <!-- FIXME change it to the project's website -->
     <url>http://localhost:8080</url>
 
     <properties>
@@ -30,6 +29,11 @@
         <dependency>
             <groupId>org.apache.wicket</groupId>
             <artifactId>wicket-core</artifactId>
+            <version>${wicket-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wicketstuff</groupId>
+            <artifactId>wicketstuff-googlecharts</artifactId>
             <version>${wicket-version}</version>
         </dependency>
         <dependency>

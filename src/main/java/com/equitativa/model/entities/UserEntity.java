@@ -42,7 +42,6 @@ public class UserEntity extends BaseEntity {
         user.setId(this.getId());
         user.setName(this.getName());
         user.setAdmin(this.isAdmin());
-        //TODO TASKS
         return user;
     }
 }

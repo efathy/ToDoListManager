@@ -2,10 +2,11 @@ package com.equitativa.service.domain;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
-public class Project {
+public class Project implements Serializable {
     private Integer id;
 
     private String name;

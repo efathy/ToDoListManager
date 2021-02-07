@@ -1,11 +1,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
-<head>
-    <title>Wicket Hello World</title>
-</head>
 <body>
-<h1>
-    <span wicket:id="message" class="jumbotron text-center">message will be replace later</span>
-</h1>
+<wicket:extend>
+    <br/>
+    <h3 class="text-center">Features</h3>
+    <table class="table table-bordered table-dark">
+        <thead>
+        </thead>
+        <tr wicket:id="featuresRows">
+            <td wicket:id="feature"></td>
+        </tr>
+    </table>
+</wicket:extend>
 </body>
 </html>

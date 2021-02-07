@@ -80,4 +80,13 @@ public class TaskEntity extends BaseEntity {
         task.setProject(this.getProject().getProject());
         return task;
     }
+
+    public Task getSimpleTask() {
+        Task task = new Task();
+        task.setId(this.getId());
+        task.setName(this.getName());
+        task.setDescription(this.getDescription());
+        task.setStatus(this.getStatus());
+        return task;
+    }
 }

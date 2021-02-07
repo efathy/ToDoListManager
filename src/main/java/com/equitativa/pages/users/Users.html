@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<wicket:extend>
+    <h3 class="text-center">Users</h3>
+    <br/>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>User name</th>
+        </tr>
+        </thead>
+        <tr wicket:id="userRows">
+            <td wicket:id="user"></td>
+        </tr>
+    </table>
+    <div>
+        <a class="nav-item nav-link" wicket:id="createUser">Create New User</a>
+    </div>
+</wicket:extend>
+</body>
+</html>
