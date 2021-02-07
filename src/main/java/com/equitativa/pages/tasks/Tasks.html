@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<wicket:extend>
+    <h3 class="text-center">Tasks</h3>
+    <br/>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Project Name</th>
+            <th>Task Name</th>
+            <th>Assigned To</th>
+            <th>Status</th>
+            <th>Operations</th>
+        </tr>
+        </thead>
+        <tr wicket:id="taskRows">
+            <td wicket:id="task"></td>
+            <td><a wicket:id="editBtn" class="fas fa-pen">Edit</a> | <a wicket:id="deleteBtn" class="fa fa-trash-o">Delete</a></td>
+        </tr>
+    </table>
+    <div>
+        <a class="nav-item nav-link" wicket:id="createTask">Create New Task</a>
+    </div>
+</wicket:extend>
+</body>
+</html>

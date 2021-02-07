@@ -25,6 +25,11 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    public Project findProject(Integer projectId) {
+        return projectDataAccess.findProject(projectId);
+    }
+
+    @Override
     public List<Project> getProjects(Integer managerId) {
         return projectDataAccess.getProjects(managerId);
     }

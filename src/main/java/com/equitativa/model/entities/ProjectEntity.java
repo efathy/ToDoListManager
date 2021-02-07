@@ -1,6 +1,7 @@
 package com.equitativa.model.entities;
 
 import com.equitativa.service.domain.Project;
+import com.equitativa.service.domain.Task;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @Entity(name = "project")
@@ -47,7 +50,9 @@ public class ProjectEntity extends BaseEntity {
         project.setId(this.getId());
         project.setName(this.getName());
         project.setManager(this.getManager().getUser());
-        //TODO TASKS
+        if(tasks != null) {
+            project.setTasksList(tasks.stream().map(TaskEntity::getSimpleTask).collect(Collectors.toList()));
+        }
         return project;
     }
 }

@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<wicket:extend>
+    <h3 class="text-center">Projects</h3>
+    <br/>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Project Name</th>
+            <th>Manager Name</th>
+            <th>View Chart</th>
+        </tr>
+        </thead>
+        <tr wicket:id="projectRows">
+            <td wicket:id="project"></td>
+            <td><a wicket:id="chart">Chart</a></td>
+        </tr>
+    </table>
+    <div>
+        <a class="nav-item nav-link" wicket:id="createProject">Create New Project</a>
+    </div>
+</wicket:extend>
+</body>
+</html>

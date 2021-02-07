@@ -34,7 +34,12 @@ public class ConnectionHandler {
         return factory;
     }
 
-    //TODO shutdown entity manager
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        shutdown();
+    }
+
     private static void shutdown() {
         if (factory != null) {
             factory.close();
