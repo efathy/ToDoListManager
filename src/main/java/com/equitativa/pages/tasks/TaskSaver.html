@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:wicket="http://wicket.apache.org/dtds.data/wicket-xhtml1.4-strict.dtd">
+<body>
+<form wicket:id="form">
+    <wicket:extend>
+        <h3 class="text-center">Task</h3>
+        <form wicket:id="taskForm">
+            <div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" wicket:id="name" placeholder="Enter Name" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" rows="5" wicket:id="description" id="description"
+                              placeholder="Enter Description"></textarea>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label for="project">Project:</label>
+                        <select class="form-control" wicket:id="projects" id="project"/>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label for="reporter">Reporter:</label>
+                        <select class="form-control" wicket:id="reporter" id="reporter"/>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label for="assignedTo">Assigned To:</label>
+                        <select class="form-control" wicket:id="assignedTo" id="assignedTo"/>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select class="form-control" wicket:id="status" id="status"/>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="Save" class="btn btn-primary"/>
+            </div>
+        </form>
+    </wicket:extend>
+</form>
+</body>
+</html>
